@@ -45,14 +45,14 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-1">
-                                    <img
+                                    <!-- <img
                                         src="/images/dashboard-icon-product-1.png"
                                         alt=""
-                                    />
+                                    /> -->
                                 </div>
                                 <div class="col-md-4"><?=$dt['nama_barang'];?></div>
                                 <div class="col-md-3"><?=$dt['nama_customer'];?></div>
-                                <div class="col-md-3"><?=$this->crud->convert_date('H : i A', $dt['tanggal']);?></div>
+                                <div class="col-md-3" id="waktu">a moment ago</div>
                                 <div class="col-md-1 d-none d-md-block">
                                     <img
                                         src="<?=base_url();?>assets/images/dashboard-arrow-right.svg"

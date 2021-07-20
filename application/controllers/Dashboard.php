@@ -134,4 +134,13 @@ class Dashboard extends CI_Controller
             redirect('barang');
         }
     }
+
+    public function get_timer()
+    {
+        # code...
+        $data = $this->crud->show('penjualan');
+        $time = $this->crud->convert_date('M d, Y H:i:s', $data[0]['tanggal']);
+
+        print json_encode($time);
+    }
 }

@@ -17,33 +17,14 @@
     <script>
       Vue.use(Toasted);
       var barang = new Vue({
-        // mounted() {
-        //   const $selectpicker = $(this.$el).find('.selectpicker');
-
-        //   $selectpicker
-        //     .selectpicker()
-        //     .on('changed.bs.select', () => this.$emit('changeWeek', this.options[$selectpicker.val()]));
-        // },
          updated() {
           $(this.$el).find('.selectpicker').selectpicker('refresh');
         },
-        // destroyed() {
-        //   $(this.$el).find('.selectpicker')
-        //     .off()
-        //     .selectpicker('destroy');
-        // },
         el: "#barang",
         data: {
-          // name: "Angga Hazza Sett",
-          // email: "kamujagoan@bwa.id",
-          // password: "",
           is_new_product: false,
-          // store_name: "",
-          // isActive:true,
         },
       });
-
-
     </script>
     <?php if (isset($addon_script)): ?>
     <?php foreach ($addon_script as $dt): ?>
@@ -63,13 +44,6 @@
       });
     </script>
     <script>
-      // if($("#show").is(':checked')){
-      //   console.log('aa');
-      //   // $("#pass").attr('type','text');  // checked
-      // }
-      // else {
-      //   $("#pass").attr('type','password');  // unchecked
-      // }
       $('#show').click(function(){
         if($('#show').is(':checked')){
           $("#pass").attr('type','text');
@@ -77,6 +51,46 @@
           $("#pass").attr('type','password');
         }
       })
+    </script>
+    <script>
+      $(document).ready(function(){
+          $.ajax({
+            type:'POST',
+            url:'<?=base_url('dashboard');?>/get_timer',
+            dataType:'json',
+            success:function(data){
+              var now = new Date().getTime();
+              var time = new Date(data).getTime();
+              var selisih = now - time;
+              var timer;
+
+              var hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+              var jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+              var menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
+              if(hari > 1 ){
+                timer = hari + " days ago";
+                setInterval(function(){
+                  $('#waktu').html(timer);
+                }, (1000 * 60 * 60 * 24))
+              } else if (jam > 1){
+                timer = jam + " hours ago";
+                setInterval(function(){
+                  $('#waktu').html(timer);
+                }, (1000 * 60 * 60))
+              } else if (menit > 1){
+                timer = menit + " minutes ago";
+                setInterval(function(){
+                  $('#waktu').html(timer);
+                }, (1000 * 60))
+              } else {
+                timer = 'a moment ago';
+                $('#waktu').html(timer);
+              }
+
+              $('#waktu').html(timer);
+            }
+         });
+      });
     </script>
 
   </body>
