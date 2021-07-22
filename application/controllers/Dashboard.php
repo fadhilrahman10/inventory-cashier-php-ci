@@ -138,9 +138,12 @@ class Dashboard extends CI_Controller
     public function get_timer()
     {
         # code...
-        $data = $this->crud->show('penjualan');
-        $time = $this->crud->convert_date('M d, Y H:i:s', $data[0]['tanggal']);
+        $data = $this->crud->lap_penjualan(['status' => 'sudah'], false, 5);
 
-        print json_encode($time);
+        // foreach ($data as $dt) {
+        //     $dt['time'] = $this->crud->convert_date('M d, Y H:i:s', $data[0]['tanggal']);
+        // }
+
+        print json_encode($data);
     }
 }
