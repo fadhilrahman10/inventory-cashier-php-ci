@@ -37,32 +37,7 @@
             <div class="row mt-3">
                 <div class="col-12 mt-2">
                     <h5 class="mb-3">Recent Transactions</h5>
-                    <?php foreach ($recent as $dt): ?>
-                    <a
-                        class="card card-list d-block"
-                        href="<?=base_url('cashier');?>/detail/<?=$dt['no_penjualan'];?>"
-                    >
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-1">
-                                    <!-- <img
-                                        src="/images/dashboard-icon-product-1.png"
-                                        alt=""
-                                    /> -->
-                                </div>
-                                <div class="col-md-4"><?=$dt['nama_barang'];?></div>
-                                <div class="col-md-3"><?=$dt['nama_customer'];?></div>
-                                <div class="col-md-3" id="waktu">a moment ago</div>
-                                <div class="col-md-1 d-none d-md-block">
-                                    <img
-                                        src="<?=base_url();?>assets/images/dashboard-arrow-right.svg"
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <?php endforeach;?>
+                    <div id="show"></div>
                 </div>
             </div>
         </div>

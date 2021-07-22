@@ -53,10 +53,10 @@
                           <div class="card-body">
                             <div class="row">
                               <div class="col-md-1">
-                                <img
+                                <!-- <img
                                   src="/images/dashboard-icon-product-3.png"
                                   alt=""
-                                />
+                                /> -->
                               </div>
                               <div class="col-md-4">
                                 <?=$dt['nama_barang'];?>
@@ -96,10 +96,10 @@
                           <div class="card-body">
                             <div class="row">
                               <div class="col-md-1">
-                                <img
+                                <!-- <img
                                   src="/images/dashboard-icon-product-1.png"
                                   alt=""
-                                />
+                                /> -->
                               </div>
                               <div class="col-md-4">
                                 <?=$dt['nama_barang'];?>
