@@ -2,14 +2,14 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-12 text-center">
-						<p class="pt-4 pb-2">2019 Copyright Store. All Rights Reserved.</p>
+						<p class="pt-4 pb-2">2019 Copyright Cashier. All Rights Reserved.</p>
 					</div>
 				</div>
 			</div>
 		</footer>
 
 		<!-- Bootstrap core JavaScript -->
-		<script src="<?=base_url();?>assets/vendor/jquery/jquery.slim.min.js"></script>
+		<script src="<?=base_url();?>assets/vendor/jquery/jquery.min.js"></script>
 		<script src="<?=base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 		<script>

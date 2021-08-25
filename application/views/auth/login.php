@@ -28,9 +28,14 @@
                 menjadi lebih mudah
               </h2>
               <form class="mt-3" action="" method="POST">
-                <?php if ($this->session->flashdata()): ?>
+                <?php if ($this->session->flashdata('login')): ?>
                 <div class="alert alert-danger" role="alert">
                     <?=$this->session->flashdata('login');?>
+                </div>
+                <?php endif?>
+								<?php if ($this->session->flashdata('success')): ?>
+                <div class="alert alert-success" role="alert">
+                    <?=$this->session->flashdata('success');?>
                 </div>
                 <?php endif?>
                 <div class="form-group">

@@ -8,7 +8,7 @@ class Auth extends CI_Controller
         parent::__construct();
         date_default_timezone_set('Asia/Jakarta');
         $this->load->model('Crud_model', 'crud');
-        $this->load->library('form_validation');
+        $this->load->library('form_validation');		
     }
 
     public function index()
@@ -17,6 +17,15 @@ class Auth extends CI_Controller
         $data['ss'] = '';
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('pass', 'Password', 'required');
+
+		$user = $this->session->userdata('user');
+		if($user != null){
+			if($user['status'] == 'admin'){
+				redirect('dashboard');
+			} else {
+				redirect('cashier');
+			}
+		}
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header.php', $data);
@@ -41,6 +50,15 @@ class Auth extends CI_Controller
         # code...
         $data['aa'] = '';
 
+		$user = $this->session->userdata('user');
+		if($user != null){
+			if($user['status'] == 'admin'){
+				redirect('dashboard');
+			} else {
+				redirect('cashier');
+			}
+		}
+
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('pass', 'Password', 'required');
         $this->form_validation->set_rules('cpass', 'Confirm Password', 'required|matches[pass]');
@@ -60,6 +78,7 @@ class Auth extends CI_Controller
                 $this->session->set_flashdata('gagal', 'Username sudah ada!');
                 redirect('auth/register');
             } else {
+                $this->session->set_flashdata('success', 'Sign-up success, Please Login!');
                 $this->crud->add('admin', $val);
                 redirect('auth');
             }
