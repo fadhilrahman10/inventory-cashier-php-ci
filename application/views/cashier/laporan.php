@@ -21,7 +21,7 @@
               </div>
               <?php endif?>
             <?php if (isset($sort)): ?>
-              <form action="" method="POST" class="form-inline mb-2">
+              <form action="" method="POST" class="form-inline mb-4">
                 <input
                   type="month"
                   class="form-control col-3"
@@ -61,10 +61,73 @@
                   <?php endforeach;?>
                 </tbody>
               </table>
+							<button type="button" onclick="printContent('print');" class="btn btn-success btn-block mt-5">Print</button>
             </div>
           </div>
         </div>
       </div>
+			<div class="row mt-4 d-none d-print-block" id="print">
+				<div class="col-12">
+					<div
+						class="card card-dashboard-product d-block"
+						href="/dashboard-products-details.html"
+					>
+						<div class="card-body">
+							
+							<div class="row">
+								<div class="col-12 text-center">
+									<h2>Laporan Penjualan Bulan <?= isset($bulan) ? date('F', strtotime($bulan)): date('F'); ?> </h2>
+									<h4>CV BERKAH</h4>
+									<hr>
+								</div>
+								<?php $user = $this->session->userdata('user'); ?>
+								<div class="col-6">
+									<p>Tanggal : <?= date('d F Y'); ?></p>
+									<p>Dibuat Oleh : <?= $user['username']; ?></p>
+								</div>
+							</div>
+
+							<table
+                class="table table-bordered"
+              >
+                <thead>
+                  <tr>
+                    <th scope="col">Barang</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Jumlah</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Tanggal</th>
+                    <th scope="col">Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($data as $dt): ?>
+                  <tr>
+                    <td><?=$dt['nama_barang'];?></td>
+                    <td><?=$dt['nama_customer'];?></td>
+                    <td><?=$dt['jumlah'];?></td>
+                    <td><?=$dt['total'];?></td>
+                    <td><?=$this->crud->convert_date('d F Y', $dt['tanggal']);?></td>
+                    <td><?=$this->crud->convert_date('H : i A', $dt['tanggal']);?></td>
+                  </tr>
+                  <?php endforeach;?>
+                </tbody>
+              </table>
+
+							<div class="row mb-5 mt-5 text-right justify-content-end" >
+								<div class="col-6 mb-5" >
+									Pekanbaru, <?= date('d F Y'); ?>
+								</div>
+							</div>
+							<div class="row mb-5 mt-5 text-right justify-content-end">
+								<div class="col-6 mb-5" style="margin-top: 1rem;">
+									<p class="font-weight-bold pr-5">Novriyanto</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
     </div>
   </div>
   </div>

@@ -8,6 +8,12 @@
     <script src="<?=$dt;?>"></script>
     <?php endforeach;?>
     <?php endif?>
+		<script>
+			$(document).ready(function () {
+				$("#tabel").DataTable();
+			});
+
+		</script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
@@ -28,7 +34,7 @@
     </script>
     <?php if (isset($addon_script)): ?>
     <?php foreach ($addon_script as $dt): ?>
-    <script src="<?=$dt;?>"></script>
+    <script src="<?= base_url(); ?><?=$dt;?>"></script>
     <?php endforeach;?>
     <?php endif?>
     <?php if (isset($addon_script_local)): ?>

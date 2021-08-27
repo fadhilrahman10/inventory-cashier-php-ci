@@ -32,7 +32,7 @@
                         </div>
                         <?php endif?>
                       <?php if (isset($sort)): ?>
-                        <form action="" method="POST" class="form-inline mb-2">
+                        <form action="" method="POST" class="form-inline mb-4">
                           <input
                             type="month"
                             class="form-control col-3"
@@ -90,10 +90,77 @@
                         <?php endforeach;?>
                         </tbody>
                         </table>
+												<button type="button" onclick="printContent('print');" class="btn btn-success btn-block mt-5">Print</button>
                       </div>
                     </div>
                   </div>
                 </div>
+								<div class="row mt-4 d-none d-print-block" id="print">
+									<div class="col-12">
+										<div
+											class="card card-dashboard-product d-block"
+											href="/dashboard-products-details.html"
+										>
+											<div class="card-body">
+												
+												<div class="row">
+													<div class="col-12 text-center">
+														<h2>Laporan Barang <?= isset($bulan) ? 'Bulan '.date('F', strtotime($bulan)): ''; ?> </h2>
+														<h4>CV BERKAH</h4>
+														<hr>
+													</div>
+													<?php $user = $this->session->userdata('user'); ?>
+													<div class="col-6">
+														<p>Tanggal : <?= date('d F Y'); ?></p>
+														<p>Dibuat Oleh : <?= $user['username']; ?></p>
+													</div>
+												</div>
+
+												<table
+                        class="table table-bordered"
+                        >
+													<thead>
+														<tr>
+															<th scope="col">Nama</th>
+															<th scope="col">Jumlah</th>
+															<th scope="col">Unit</th>
+															<th scope="col">Harga Beli</th>
+															<th scope="col">Harga Jual</th>
+															<th scope="col">Buat</th>
+															<th scope="col">Perbarui</th>
+														</tr>
+													</thead>
+                        <tbody>
+                        <?php foreach ($barang as $dt): ?>
+                            <tr>
+															<td><?=$dt['nama_barang'];?></td>
+															<td><?=$dt['jumlah'];?></td>
+															<td><?=$dt['unit'];?></td>
+															<td><?=$dt['harga_beli'];?></td>
+															<td><?=$dt['harga_jual'];?></td>
+															<td><?=$this->crud->convert_date('d F Y', $dt['tgl_input']);?></td>
+															<td>
+																	<?=$dt['tgl_update'] == '0000-00-00 00:00:00' ? '-' : $this->crud->convert_date('d F Y', $dt['tgl_update']);?>
+															</td>
+                            </tr>
+                        <?php endforeach;?>
+                        	</tbody>
+                        </table>
+
+												<div class="row mb-5 mt-5 text-right justify-content-end" >
+													<div class="col-6 mb-5" >
+														Pekanbaru, <?= date('d F Y'); ?>
+													</div>
+												</div>
+												<div class="row mb-5 mt-5 text-right justify-content-end">
+													<div class="col-6 mb-5" style="margin-top: 1rem;">
+														<p class="font-weight-bold pr-5">Novriyanto</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
               </div>
             </div>
           </div>

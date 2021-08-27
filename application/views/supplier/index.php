@@ -66,10 +66,67 @@
                             <?php endforeach;?>
                           </tbody>
                         </table>
+												<button type="button" onclick="printContent('print');" class="btn btn-success btn-block mt-5">Print</button>
                       </div>
                     </div>
                   </div>
                 </div>
+								<div class="row mt-4 d-none d-print-block" id="print">
+									<div class="col-12">
+										<div
+											class="card card-dashboard-product d-block"
+											href="/dashboard-products-details.html"
+										>
+											<div class="card-body">
+												
+												<div class="row">
+													<div class="col-12 text-center">
+														<h2>Laporan Supplier</h2>
+														<h4>CV BERKAH</h4>
+														<hr>
+													</div>
+													<?php $user = $this->session->userdata('user'); ?>
+													<div class="col-6">
+														<p>Tanggal : <?= date('d F Y'); ?></p>
+														<p>Dibuat Oleh : <?= $user['username']; ?></p>
+													</div>
+												</div>
+
+												<table
+                          class="table table-bordered"
+                        >
+                          <thead>
+                            <tr>
+                              <th scope="col">Nama</th>
+                              <th scope="col">Alamat</th>
+                              <th scope="col">No Hp</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <?php foreach ($data as $dt): ?>
+                            <tr>
+                              <td><?=$dt['nama'];?></td>
+                              <td><?=$dt['alamat'];?></td>
+                              <td><?=$dt['no_hp'];?></td>
+                            </tr>
+                            <?php endforeach;?>
+                          </tbody>
+                        </table>
+
+												<div class="row mb-5 mt-5 text-right justify-content-end" >
+													<div class="col-6 mb-5" >
+														Pekanbaru, <?= date('d F Y'); ?>
+													</div>
+												</div>
+												<div class="row mb-5 mt-5 text-right justify-content-end">
+													<div class="col-6 mb-5" style="margin-top: 1rem;">
+														<p class="font-weight-bold pr-5">Novriyanto</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
               </div>
             </div>
           </div>
