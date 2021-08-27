@@ -48,6 +48,7 @@ class Barang extends CI_Controller
             $this->load->view('templates/footer.php', $data);
         } else {
             $month = explode('-', $this->input->post('bulan'));
+			$data['bulan'] = $this->input->post('bulan');
             $data['barang'] = $this->crud->show('barang', ['MONTH(tgl_input)' => $month[1]]);
             $this->load->view('templates/header.php', $data);
             $this->load->view('templates/sidebar.php', $data);

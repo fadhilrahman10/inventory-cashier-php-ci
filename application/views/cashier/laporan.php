@@ -76,7 +76,7 @@
 							
 							<div class="row">
 								<div class="col-12 text-center">
-									<h2>Laporan Penjualan Bulan <?= isset($bulan) ? date('F', strtotime($bulan)): date('F'); ?> </h2>
+									<h2>Laporan Penjualan <?= isset($bulan) ? 'Bulan '.date('F', strtotime($bulan)):''; ?> </h2>
 									<h4>CV BERKAH</h4>
 									<hr>
 								</div>
@@ -114,12 +114,15 @@
                 </tbody>
               </table>
 
-							<div class="row mb-5 mt-5 text-right justify-content-end" >
-								<div class="col-6 mb-5" >
+							<div class="row mb-3 mt-5 text-right justify-content-end" >
+								<div class="col-6" >
 									Pekanbaru, <?= date('d F Y'); ?>
 								</div>
 							</div>
-							<div class="row mb-5 mt-5 text-right justify-content-end">
+							<div class="row justify-content-end">
+								<img src="<?= base_url(); ?>/assets/images/ttd.png" alt="ttd.png" class="w-25">
+							</div>
+							<div class="row mb-5 text-right justify-content-end">
 								<div class="col-6 mb-5" style="margin-top: 1rem;">
 									<p class="font-weight-bold pr-5">Novriyanto</p>
 								</div>

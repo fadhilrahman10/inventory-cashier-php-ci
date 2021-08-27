@@ -137,6 +137,8 @@ class Cashier extends CI_Controller
         } else {
             $month = explode('-', $this->input->post('bulan'));
 
+			$data['bulan'] = $this->input->post('bulan');
+
             $data['data'] = $this->crud->lap_penjualan(['MONTH(tanggal)' => $month[1], 'status' => 'sudah']);
             $this->load->view('templates/header.php', $data);
             $this->load->view('templates/sidebar.php', $data);
