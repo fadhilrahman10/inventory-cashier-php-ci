@@ -42,6 +42,42 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
       });
+
+			$("#jumlah").keyup(function(){
+				const harga_beli = $("#harga_beli").val();
+				const jumlah = $("#jumlah").val();
+				const harga = $('#harga').val();
+
+				var result = 0;
+
+				if(harga != null){
+					result = parseInt(harga) * parseInt(jumlah);
+				}else if(harga_beli != null) {
+					result = parseInt(harga_beli) * parseInt(jumlah);
+				}
+
+				if(isNaN(result)){
+					$("#total").val('0');
+				} else {
+					$("#total").val(result);
+				}
+
+
+			});
+
+			$("#idBarang").change(function(){
+				var id_barang = $('#idBarang').val();
+				$.ajax({
+					type:'POST',
+					url:'<?= base_url('pembelian'); ?>/get_harga',
+					dataType:'json',
+					data:'id_barang='+id_barang,
+					success:function(data){
+						$('#harga').val(data);
+					}
+				});
+			});
+
     </script>
     <script>
       $('#show').click(function(){

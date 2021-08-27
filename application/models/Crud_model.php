@@ -54,7 +54,7 @@ class Crud_model extends CI_Model
     {
         # code...
         $this->db->select($field);
-        if (empty($whereClause)) {
+        if (!empty($whereClause)) {
             return $this->db->get_where($tabel, $whereClause)->row_array();
         } else {
             return $this->db->get($tabel)->result_array();

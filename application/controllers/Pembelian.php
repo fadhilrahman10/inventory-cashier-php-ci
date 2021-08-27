@@ -143,4 +143,12 @@ class Pembelian extends CI_Controller
 
     }
 
+	public function get_harga()
+	{
+		# code...
+		$id = $this->input->post('id_barang');
+		$data = $this->crud->show_field('barang', 'harga_beli', ['id_barang' => $id]);
+		print json_encode($data['harga_beli']);
+	}
+
 }

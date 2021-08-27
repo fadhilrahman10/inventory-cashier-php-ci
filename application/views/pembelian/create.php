@@ -112,6 +112,7 @@
                                 <input
                                   type="number"
                                   name="harga_beli"
+																	id="harga_beli"
                                   class="form-control"
                                   aria-describedby="storeHelp"
                                   required
@@ -133,7 +134,7 @@
                             <div class="col-md-12" v-else>
                               <div class="form-group" >
                                 <label>Barang</label>
-                                <select name="id_barang" class="form-control selectpicker <?php if (validation_errors() != ''): ?>
+                                <select name="id_barang" id="idBarang" class="form-control selectpicker <?php if (validation_errors() != ''): ?>
                                     <?=form_error('id_barang') ? 'is-invalid' : 'is-valid';?>
                                   <?php endif;?>"
                                   data-live-search="true"
@@ -148,6 +149,7 @@
                                     <?=form_error('id_barang');?>
                                 </div>
                                 <?php endif?>
+																<input type="hidden" name="harga" id="harga" value="0">
                               </div>
                             </div>
                             <div class="col-md-6">
