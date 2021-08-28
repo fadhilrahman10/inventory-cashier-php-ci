@@ -270,6 +270,22 @@
                               </div>
                             </div>
                           </div>
+                          <div class="row">
+                            <div class="col-12 col-md-6 mt-3">
+                              <div class="product-title">Bayar</div>
+                              <div class="product-subtitle" id="jumlah_bayar">
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12 col-md-6 mt-3">
+                              <div class="product-title">Kembalian</div>
+                              <div class="product-subtitle" id="kembalian_uang">
+
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

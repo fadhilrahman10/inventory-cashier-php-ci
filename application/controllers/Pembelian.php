@@ -26,6 +26,7 @@ class Pembelian extends CI_Controller
             $data['active'] = 'lap';
             $data['sub_active'] = 'lap_pem';
             $data['sort'] = true;
+			$data['nama_admin'] = 'Fadhil Rahman';
         } else {
             $data['add'] = true;
             $data['sub_active'] = '';

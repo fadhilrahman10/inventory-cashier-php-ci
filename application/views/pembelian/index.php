@@ -126,18 +126,44 @@
 									<?php endforeach;?>
 								</tbody>
 							</table>
-
-							<div class="row mb-3 mt-5 text-right justify-content-end" >
-								<div class="col-6" >
-									Pekanbaru, <?= date('d F Y'); ?>
-								</div>
-							</div>
-							<div class="row justify-content-end">
-								<img src="<?= base_url(); ?>/assets/images/ttd.png" alt="ttd.png" class="w-25">
-							</div>
-							<div class="row mb-5 text-right justify-content-end">
-								<div class="col-6 mb-5" style="margin-top: 1rem;">
-									<p class="font-weight-bold pr-5">Novriyanto</p>
+							<div class="row justify-content-between">
+								<div class="col-12">
+									<div class="row mb-3 mt-5 text-left justify-content-start" >
+										<div class="col-6" style="margin-left: 3rem;" >
+											Dibuat Oleh ,
+										</div>
+									</div>
+									<div class="row justify-content-start">
+										<img src="<?= base_url(); ?>/assets/images/ttd.png" alt="ttd.png" class="w-25">
+									</div>
+									<div class="row mb-3 mt-5 text-left justify-content-start" >
+										<div class="col-6" >
+											<p class="text-center" style="margin-left: -18rem;">
+											<?= $nama_admin; ?>
+											<br>
+											Admin
+											</p>
+										</div>
+									</div>
+									<div class="row mb-3 text-left justify-content-end" style="margin-top: -18.2rem; margin-left: 25rem;" >
+										<div class="col-6" >
+											Diterima Oleh , 
+										</div>
+									</div>
+									<div class="row justify-content-end" style="margin-right: 6rem;">
+										<img src="<?= base_url(); ?>/assets/images/ttd.png" alt="ttd.png" class="w-25">
+									</div>
+									<div class="row mb-3 mt-5 text-right justify-content-end" >
+										<div class="col-6" >
+											<div class=" pl-5">
+												<p class="text-center">
+											Novriyanto
+											<br>
+											Pemilik
+											</p>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

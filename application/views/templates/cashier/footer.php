@@ -69,9 +69,14 @@
 				var total = parseInt(bayar) - parseInt(result);
 				if (isNaN(total)) {
 					$("#kembali").val(0);
+					$("#kembalian_uang").html(0);
 				} else {
 					$("#kembali").val(total);
+					$("#kembalian_uang").html(total);
 				}
+
+				$("#jumlah_bayar").html(bayar);
+
 			});
 		</script>
 		<script>
@@ -139,6 +144,11 @@
 
 					total += subtotal;
 				}
+
+				var kembali = $('#kembali').val();
+				var bayar = $('#bayar').val();
+
+				console.log(kembali);
 
         $("#cart").html(baris);
 				$("#total").html(convertToRupiah(total));
